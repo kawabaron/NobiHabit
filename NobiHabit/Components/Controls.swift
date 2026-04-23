@@ -109,6 +109,7 @@ struct BodyPartChip: View {
         .buttonStyle(.plain)
         .accessibilityLabel(bodyPart.title)
         .accessibilityAddTraits(isSelected ? .isSelected : [])
+        .accessibilityHint(isSelected ? "選択中です" : "この部位のストレッチを絞り込みます")
     }
 }
 
@@ -145,6 +146,7 @@ struct SceneChip: View {
         }
         .buttonStyle(.plain)
         .accessibilityLabel(isLocked ? "\(scene.title)、プレミアム限定" : scene.title)
+        .accessibilityHint(isLocked ? "プレミアムで利用できます" : "このシーンのストレッチを表示します")
     }
 }
 
@@ -168,6 +170,8 @@ struct FilterTab: View {
         }
         .buttonStyle(.plain)
         .accessibilityAddTraits(isSelected ? .isSelected : [])
+        .accessibilityLabel(title)
+        .accessibilityHint(isSelected ? "選択中です" : "このカテゴリを表示します")
     }
 }
 
@@ -193,6 +197,8 @@ struct MoodOptionChip: View {
             )
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(option.title)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 }
 
@@ -214,6 +220,8 @@ struct TimeOptionSegment: View {
                         .background(selected == option ? AppColor.brandPrimarySage : Color.clear, in: Capsule())
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(option)
+                .accessibilityAddTraits(selected == option ? .isSelected : [])
             }
         }
         .padding(4)

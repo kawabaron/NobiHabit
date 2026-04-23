@@ -65,7 +65,6 @@ struct CompletionScreen: View {
                     MoodOptionChip(option: option, isSelected: selectedMood == option) {
                         selectedMood = option
                     }
-                    .accessibilityAddTraits(selectedMood == option ? .isSelected : [])
                 }
             }
         }

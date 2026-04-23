@@ -6,7 +6,15 @@ struct ActiveSessionScreen: View {
 
     @Environment(\.dismiss) private var dismiss
     @State private var currentPoseIndex = 0
+    @State private var remainingSeconds: Int
     @State private var isPaused = false
+    @State private var showsCompletion = false
+
+    init(routine: StretchRoutine) {
+        self.routine = routine
+        let initialPoses = routine.poses.isEmpty ? StretchPose.placeholderSet : routine.poses
+        _remainingSeconds = State(initialValue: initialPoses.first?.durationSeconds ?? 0)
+    }
 
     private var poses: [StretchPose] {
         routine.poses.isEmpty ? StretchPose.placeholderSet : routine.poses
@@ -21,20 +29,26 @@ struct ActiveSessionScreen: View {
         return poses.indices.contains(nextIndex) ? poses[nextIndex] : nil
     }
 
-    private var progress: Double {
-        Double(currentPoseIndex + 1) / Double(max(poses.count, 1))
+    private var poseProgress: Double {
+        guard currentPose.durationSeconds > 0 else { return 1 }
+        let elapsed = currentPose.durationSeconds - remainingSeconds
+        return Double(elapsed) / Double(currentPose.durationSeconds)
+    }
+
+    private var timerTaskID: String {
+        "\(currentPose.id)-\(isPaused)-\(showsCompletion)"
     }
 
     var body: some View {
         BackgroundContainer {
-            VStack(spacing: AppSpacing.lg) {
+            VStack(spacing: AppSpacing.md) {
                 header
-                Spacer(minLength: AppSpacing.xs)
+                Spacer(minLength: 0)
                 mainIllustration
                 timerSection
                 breathingHint
                 nextStretchSection
-                Spacer(minLength: AppSpacing.xs)
+                Spacer(minLength: 0)
                 controls
             }
             .screenHorizontalPadding()
@@ -43,6 +57,15 @@ struct ActiveSessionScreen: View {
         }
         .navigationBarBackButtonHidden(true)
         .toolbar(.hidden, for: .tabBar)
+        .navigationDestination(isPresented: $showsCompletion) {
+            CompletionScreen(routine: routine)
+        }
+        .task(id: timerTaskID) {
+            await runCountdown()
+        }
+        .onChange(of: currentPoseIndex) { _, _ in
+            resetTimerForCurrentPose()
+        }
     }
 
     private var header: some View {
@@ -66,6 +89,8 @@ struct ActiveSessionScreen: View {
                 Text(currentPose.title)
                     .font(AppFont.screenTitle)
                     .foregroundStyle(AppColor.textPrimary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.82)
 
                 Text("\(currentPoseIndex + 1) / \(poses.count)")
                     .font(AppFont.captionStrong)
@@ -99,14 +124,15 @@ struct ActiveSessionScreen: View {
     }
 
     private var timerSection: some View {
-        ProgressRing(progress: progress, lineWidth: 8) {
+        ProgressRing(progress: poseProgress, lineWidth: 8) {
             TimerView(
-                remainingText: isPaused ? "一時停止" : timeText(seconds: currentPose.durationSeconds),
+                remainingText: isPaused ? "一時停止" : timeText(seconds: remainingSeconds),
                 caption: "残り時間"
             )
         }
         .frame(width: 148, height: 148)
-        .accessibilityLabel("残り時間 \(currentPose.durationSeconds) 秒")
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(isPaused ? "一時停止中" : "残り時間 \(remainingSeconds) 秒")
     }
 
     private var breathingHint: some View {
@@ -140,6 +166,7 @@ struct ActiveSessionScreen: View {
                 }
             }
         }
+        .accessibilityElement(children: .combine)
     }
 
     private var controls: some View {
@@ -149,14 +176,12 @@ struct ActiveSessionScreen: View {
             }
 
             if nextPose == nil {
-                NavigationLink(value: AppRoute.completion(routine)) {
-                    SecondaryButtonLabel(title: "完了へ", systemImage: "checkmark")
+                SecondaryButton(title: "完了へ", systemImage: "checkmark") {
+                    completeSession()
                 }
-                .buttonStyle(.plain)
             } else {
                 SecondaryButton(title: "スキップ", systemImage: "forward.fill") {
-                    currentPoseIndex += 1
-                    isPaused = false
+                    advanceToNextPose()
                 }
             }
         }
@@ -166,6 +191,44 @@ struct ActiveSessionScreen: View {
         let minutes = seconds / 60
         let remainingSeconds = seconds % 60
         return String(format: "%02d:%02d", minutes, remainingSeconds)
+    }
+
+    @MainActor
+    private func runCountdown() async {
+        guard !isPaused, !showsCompletion, remainingSeconds > 0 else { return }
+
+        while !Task.isCancelled, !isPaused, !showsCompletion, remainingSeconds > 0 {
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            guard !Task.isCancelled, !isPaused, !showsCompletion else { return }
+            remainingSeconds -= 1
+        }
+
+        guard !Task.isCancelled, !isPaused, !showsCompletion, remainingSeconds == 0 else { return }
+
+        if nextPose == nil {
+            completeSession()
+        } else {
+            advanceToNextPose()
+        }
+    }
+
+    private func resetTimerForCurrentPose() {
+        remainingSeconds = currentPose.durationSeconds
+    }
+
+    private func advanceToNextPose() {
+        guard nextPose != nil else {
+            completeSession()
+            return
+        }
+
+        currentPoseIndex += 1
+        isPaused = false
+    }
+
+    private func completeSession() {
+        isPaused = true
+        showsCompletion = true
     }
 }
 

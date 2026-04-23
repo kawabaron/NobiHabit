@@ -230,6 +230,7 @@ struct RoutineCard: View {
                 }
             }
         }
+        .accessibilityHint(isLocked ? "プレミアムで利用できます" : "詳細を開きます")
     }
 
     private var accessibilityText: String {
