@@ -14,6 +14,9 @@ struct AppRootView: View {
                     tab.content
                         .withAppRoutes()
                 }
+                .environment(\.navigate) { route in
+                    navigate(route, on: tab)
+                }
                 .environment(\.returnHome, { returnHome() })
                 .tabItem {
                     tab.label
@@ -43,6 +46,19 @@ struct AppRootView: View {
         recordPath.removeAll()
         settingsPath.removeAll()
         selectedTab = .home
+    }
+
+    private func navigate(_ route: AppRoute, on tab: AppTab) {
+        switch tab {
+        case .home:
+            homePath.append(route)
+        case .menu:
+            menuPath.append(route)
+        case .record:
+            recordPath.append(route)
+        case .settings:
+            settingsPath.append(route)
+        }
     }
 }
 

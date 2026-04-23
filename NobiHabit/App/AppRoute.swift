@@ -25,9 +25,18 @@ private struct ReturnHomeKey: EnvironmentKey {
     static let defaultValue: () -> Void = {}
 }
 
+private struct NavigateKey: EnvironmentKey {
+    static let defaultValue: (AppRoute) -> Void = { _ in }
+}
+
 extension EnvironmentValues {
     var returnHome: () -> Void {
         get { self[ReturnHomeKey.self] }
         set { self[ReturnHomeKey.self] = newValue }
+    }
+
+    var navigate: (AppRoute) -> Void {
+        get { self[NavigateKey.self] }
+        set { self[NavigateKey.self] = newValue }
     }
 }
