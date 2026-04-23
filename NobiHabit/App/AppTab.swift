@@ -8,6 +8,32 @@ enum AppTab: String, CaseIterable, Identifiable, Hashable {
 
     var id: String { rawValue }
 
+    var title: String {
+        switch self {
+        case .home:
+            "ホーム"
+        case .menu:
+            "メニュー"
+        case .record:
+            "記録"
+        case .settings:
+            "設定"
+        }
+    }
+
+    var systemImage: String {
+        switch self {
+        case .home:
+            "house"
+        case .menu:
+            "list.bullet"
+        case .record:
+            "moon.stars"
+        case .settings:
+            "gearshape"
+        }
+    }
+
     @ViewBuilder
     var content: some View {
         switch self {
@@ -24,15 +50,10 @@ enum AppTab: String, CaseIterable, Identifiable, Hashable {
 
     @ViewBuilder
     var label: some View {
-        switch self {
-        case .home:
-            Label("ホーム", systemImage: "house")
-        case .menu:
-            Label("メニュー", systemImage: "list.bullet")
-        case .record:
-            Label("記録", systemImage: "moon.stars")
-        case .settings:
-            Label("設定", systemImage: "gearshape")
+        Label {
+            Text(title)
+        } icon: {
+            Image(systemName: systemImage)
         }
     }
 }

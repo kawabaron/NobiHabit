@@ -68,6 +68,8 @@ struct HomeScreen: View {
                                 Text(recommendation.routine.title)
                                     .font(AppFont.cardTitle)
                                     .foregroundStyle(AppColor.textPrimary)
+                                    .lineLimit(2)
+                                    .minimumScaleFactor(0.86)
 
                                 Spacer()
                                 MascotBadge(variant: recommendation.mascotVariant, size: 38)
@@ -81,6 +83,7 @@ struct HomeScreen: View {
                                 .font(AppFont.caption)
                                 .foregroundStyle(AppColor.textSecondary)
                                 .lineLimit(2)
+                                .fixedSize(horizontal: false, vertical: true)
                         }
                     }
 

@@ -17,6 +17,7 @@
         AC0000000000000000000008 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000008 /* Cards.swift */; };
         AC0000000000000000000009 /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000009 /* Controls.swift */; };
         AC000000000000000000000A /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000000000000000000000A /* Feedback.swift */; };
+        AC0000000000000000000016 /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000018 /* AppTabBar.swift */; };
         AC000000000000000000000B /* NobiHabitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000000000000000000000B /* NobiHabitModels.swift */; };
         AC000000000000000000000C /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000000000000000000000C /* MockData.swift */; };
         AC000000000000000000000D /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB000000000000000000000D /* HomeScreen.swift */; };
@@ -41,6 +42,7 @@
         AB0000000000000000000008 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/Cards.swift; sourceTree = "<group>"; };
         AB0000000000000000000009 /* Controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/Controls.swift; sourceTree = "<group>"; };
         AB000000000000000000000A /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/Feedback.swift; sourceTree = "<group>"; };
+        AB0000000000000000000018 /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components/AppTabBar.swift; sourceTree = "<group>"; };
         AB000000000000000000000B /* NobiHabitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/NobiHabitModels.swift; sourceTree = "<group>"; };
         AB000000000000000000000C /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock/MockData.swift; sourceTree = "<group>"; };
         AB000000000000000000000D /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Home/HomeScreen.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
                 AB0000000000000000000008 /* Cards.swift */,
                 AB0000000000000000000009 /* Controls.swift */,
                 AB000000000000000000000A /* Feedback.swift */,
+                AB0000000000000000000018 /* AppTabBar.swift */,
                 AB000000000000000000000B /* NobiHabitModels.swift */,
                 AB000000000000000000000C /* MockData.swift */,
                 AB000000000000000000000D /* HomeScreen.swift */,
@@ -192,6 +195,7 @@
                 AC0000000000000000000008 /* Cards.swift in Sources */,
                 AC0000000000000000000009 /* Controls.swift in Sources */,
                 AC000000000000000000000A /* Feedback.swift in Sources */,
+                AC0000000000000000000016 /* AppTabBar.swift in Sources */,
                 AC000000000000000000000B /* NobiHabitModels.swift in Sources */,
                 AC000000000000000000000C /* MockData.swift in Sources */,
                 AC000000000000000000000D /* HomeScreen.swift in Sources */,

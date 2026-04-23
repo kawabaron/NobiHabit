@@ -73,10 +73,14 @@ struct StatCard: View {
                     Text(value)
                         .font(AppFont.statNumber)
                         .foregroundStyle(AppColor.textPrimary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.78)
 
-                    Text(unit)
-                        .font(AppFont.captionStrong)
-                        .foregroundStyle(AppColor.textSecondary)
+                    if !unit.isEmpty {
+                        Text(unit)
+                            .font(AppFont.captionStrong)
+                            .foregroundStyle(AppColor.textSecondary)
+                    }
                 }
             }
             .frame(maxWidth: .infinity)
@@ -194,6 +198,7 @@ struct RoutineCard: View {
                             .font(AppFont.cardTitle)
                             .foregroundStyle(AppColor.textPrimary)
                             .lineLimit(1)
+                            .minimumScaleFactor(0.88)
 
                         if let badge {
                             Text(badge)

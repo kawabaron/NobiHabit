@@ -35,7 +35,7 @@ enum AppFont {
     static let caption = Font.system(size: 13, weight: .regular)
     static let captionStrong = Font.system(size: 13, weight: .medium)
     static let button = Font.system(size: 16, weight: .semibold)
-    static let statNumber = Font.system(size: 28, weight: .medium)
+    static let statNumber = Font.system(size: 24, weight: .medium)
     static let timerNumber = Font.system(size: 40, weight: .medium)
     static let tabLabel = Font.system(size: 11, weight: .medium)
 }
