@@ -55,23 +55,32 @@ struct SecondaryButton: View {
 
     var body: some View {
         Button(action: action) {
-            HStack(spacing: AppSpacing.xs) {
-                if let systemImage {
-                    Image(systemName: systemImage)
-                }
-                Text(title)
-                    .font(AppFont.button)
-            }
-            .frame(maxWidth: .infinity)
-            .frame(minHeight: 46)
-            .foregroundStyle(AppColor.textPrimary)
-            .background(AppColor.surfacePrimary, in: Capsule())
-            .overlay(
-                Capsule()
-                    .stroke(AppColor.borderSoft, lineWidth: 1)
-            )
+            SecondaryButtonLabel(title: title, systemImage: systemImage)
         }
         .buttonStyle(.plain)
+    }
+}
+
+struct SecondaryButtonLabel: View {
+    var title: String
+    var systemImage: String?
+
+    var body: some View {
+        HStack(spacing: AppSpacing.xs) {
+            if let systemImage {
+                Image(systemName: systemImage)
+            }
+            Text(title)
+                .font(AppFont.button)
+        }
+        .frame(maxWidth: .infinity)
+        .frame(minHeight: 46)
+        .foregroundStyle(AppColor.textPrimary)
+        .background(AppColor.surfacePrimary, in: Capsule())
+        .overlay(
+            Capsule()
+                .stroke(AppColor.borderSoft, lineWidth: 1)
+        )
     }
 }
 

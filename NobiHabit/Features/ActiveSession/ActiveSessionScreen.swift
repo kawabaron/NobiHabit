@@ -148,10 +148,13 @@ struct ActiveSessionScreen: View {
                 isPaused.toggle()
             }
 
-            SecondaryButton(title: nextPose == nil ? "完了へ" : "スキップ", systemImage: "forward.fill") {
-                if nextPose == nil {
-                    dismiss()
-                } else {
+            if nextPose == nil {
+                NavigationLink(value: AppRoute.completion(routine)) {
+                    SecondaryButtonLabel(title: "完了へ", systemImage: "checkmark")
+                }
+                .buttonStyle(.plain)
+            } else {
+                SecondaryButton(title: "スキップ", systemImage: "forward.fill") {
                     currentPoseIndex += 1
                     isPaused = false
                 }

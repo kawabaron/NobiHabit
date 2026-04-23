@@ -27,6 +27,7 @@
         AC0000000000000000000012 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000014 /* AppRoute.swift */; };
         AC0000000000000000000013 /* SessionPrepScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000015 /* SessionPrepScreen.swift */; };
         AC0000000000000000000014 /* ActiveSessionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000016 /* ActiveSessionScreen.swift */; };
+        AC0000000000000000000015 /* CompletionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000017 /* CompletionScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
         AB0000000000000000000014 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppRoute.swift; sourceTree = "<group>"; };
         AB0000000000000000000015 /* SessionPrepScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/SessionPrep/SessionPrepScreen.swift; sourceTree = "<group>"; };
         AB0000000000000000000016 /* ActiveSessionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/ActiveSession/ActiveSessionScreen.swift; sourceTree = "<group>"; };
+        AB0000000000000000000017 /* CompletionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Completion/CompletionScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
                 AB000000000000000000000E /* MenuLibraryScreen.swift */,
                 AB0000000000000000000015 /* SessionPrepScreen.swift */,
                 AB0000000000000000000016 /* ActiveSessionScreen.swift */,
+                AB0000000000000000000017 /* CompletionScreen.swift */,
                 AB000000000000000000000F /* RecordPlaceholderScreen.swift */,
                 AB0000000000000000000010 /* SettingsScreen.swift */,
                 AB0000000000000000000011 /* Assets.xcassets */,
@@ -195,6 +198,7 @@
                 AC000000000000000000000E /* MenuLibraryScreen.swift in Sources */,
                 AC0000000000000000000013 /* SessionPrepScreen.swift in Sources */,
                 AC0000000000000000000014 /* ActiveSessionScreen.swift in Sources */,
+                AC0000000000000000000015 /* CompletionScreen.swift in Sources */,
                 AC000000000000000000000F /* RecordPlaceholderScreen.swift in Sources */,
                 AC0000000000000000000010 /* SettingsScreen.swift in Sources */,
             );
