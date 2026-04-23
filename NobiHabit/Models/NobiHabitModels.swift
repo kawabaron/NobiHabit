@@ -204,6 +204,31 @@ struct StretchPose: Identifiable, Hashable {
     var bodyFocus: [BodyFocus]
 }
 
+extension StretchPose {
+    static let placeholderSet: [StretchPose] = [
+        StretchPose(
+            slug: "soft-breath",
+            title: "ゆっくり呼吸",
+            instruction: "背すじを長くして、呼吸を静かに整えます。",
+            breathingCue: "吸って、吐いて。からだの重さを少し手放します。",
+            durationSeconds: 30,
+            illustrationAssetName: nil,
+            focusOverlayAssetName: nil,
+            bodyFocus: [.shoulders]
+        ),
+        StretchPose(
+            slug: "gentle-stretch",
+            title: "やさしく伸ばす",
+            instruction: "痛みのない範囲で、心地よく伸ばします。",
+            breathingCue: "無理をせず、気持ちいいところで止めましょう。",
+            durationSeconds: 30,
+            illustrationAssetName: nil,
+            focusOverlayAssetName: nil,
+            bodyFocus: [.upperBack]
+        )
+    ]
+}
+
 struct UserStats: Hashable {
     var currentStreakDays: Int
     var weeklySessions: Int

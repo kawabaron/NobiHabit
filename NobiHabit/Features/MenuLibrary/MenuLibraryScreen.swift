@@ -96,12 +96,14 @@ struct MenuLibraryScreen: View {
 
                 VStack(spacing: AppSpacing.sm) {
                     ForEach(routines) { routine in
-                        RoutineCard(
-                            routine: routine,
-                            badge: routine.isPremium ? "Premium" : nil,
-                            isLocked: routine.isPremium && selectedFilter != .premium
-                        ) {
+                        NavigationLink(value: AppRoute.sessionPrep(routine)) {
+                            RoutineCard(
+                                routine: routine,
+                                badge: routine.isPremium ? "Premium" : nil,
+                                isLocked: routine.isPremium && selectedFilter != .premium
+                            )
                         }
+                        .buttonStyle(.plain)
                     }
                 }
             }

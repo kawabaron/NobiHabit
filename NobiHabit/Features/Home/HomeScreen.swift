@@ -84,8 +84,10 @@ struct HomeScreen: View {
                         }
                     }
 
-                    PrimaryButton(title: "開始する", systemImage: nil) {
+                    NavigationLink(value: AppRoute.sessionPrep(recommendation.routine)) {
+                        PrimaryButtonLabel(title: "開始する", systemImage: nil)
                     }
+                    .buttonStyle(.plain)
                 }
             }
         }
@@ -112,13 +114,15 @@ struct HomeScreen: View {
         VStack(alignment: .leading, spacing: AppSpacing.sm) {
             SectionHeader(title: "続きから")
 
-            RoutineCard(
-                routine: continueSession.routine,
-                badge: "途中まで",
-                isInProgress: true,
-                showsMascot: true
-            ) {
+            NavigationLink(value: AppRoute.sessionPrep(continueSession.routine)) {
+                RoutineCard(
+                    routine: continueSession.routine,
+                    badge: "途中まで",
+                    isInProgress: true,
+                    showsMascot: true
+                )
             }
+            .buttonStyle(.plain)
         }
     }
 }

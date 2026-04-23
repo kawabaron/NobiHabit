@@ -8,6 +8,7 @@ struct AppRootView: View {
             ForEach(AppTab.allCases) { tab in
                 NavigationStack {
                     tab.content
+                        .withAppRoutes()
                 }
                 .tabItem {
                     tab.label

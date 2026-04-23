@@ -9,26 +9,42 @@ struct PrimaryButton: View {
 
     var body: some View {
         Button(action: action) {
-            HStack(spacing: AppSpacing.xs) {
-                if isLoading {
-                    ProgressView()
-                        .tint(AppColor.surfacePrimary)
-                } else if let systemImage {
-                    Image(systemName: systemImage)
-                        .font(.system(size: AppIconSize.md, weight: .semibold))
-                }
-
-                Text(title)
-                    .font(AppFont.button)
-            }
-            .frame(maxWidth: .infinity)
-            .frame(minHeight: 48)
-            .foregroundStyle(AppColor.surfacePrimary)
-            .background(isDisabled ? AppColor.textTertiary.opacity(0.45) : AppColor.brandPrimarySage, in: Capsule())
+            PrimaryButtonLabel(
+                title: title,
+                systemImage: systemImage,
+                isLoading: isLoading,
+                isDisabled: isDisabled
+            )
         }
         .disabled(isDisabled || isLoading)
         .buttonStyle(.plain)
         .accessibilityLabel(title)
+    }
+}
+
+struct PrimaryButtonLabel: View {
+    var title: String
+    var systemImage: String?
+    var isLoading: Bool = false
+    var isDisabled: Bool = false
+
+    var body: some View {
+        HStack(spacing: AppSpacing.xs) {
+            if isLoading {
+                ProgressView()
+                    .tint(AppColor.surfacePrimary)
+            } else if let systemImage {
+                Image(systemName: systemImage)
+                    .font(.system(size: AppIconSize.md, weight: .semibold))
+            }
+
+            Text(title)
+                .font(AppFont.button)
+        }
+        .frame(maxWidth: .infinity)
+        .frame(minHeight: 48)
+        .foregroundStyle(AppColor.surfacePrimary)
+        .background(isDisabled ? AppColor.textTertiary.opacity(0.45) : AppColor.brandPrimarySage, in: Capsule())
     }
 }
 
