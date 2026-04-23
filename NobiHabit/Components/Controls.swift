@@ -98,7 +98,7 @@ struct BodyPartChip: View {
                 Text(bodyPart.title)
                     .font(AppFont.captionStrong)
             }
-            .frame(width: 72, height: 68)
+            .frame(width: 68, height: 64)
             .foregroundStyle(isSelected ? AppColor.textPrimary : AppColor.textSecondary)
             .background(isSelected ? AppColor.surfaceSageSoft : AppColor.surfacePrimary, in: RoundedRectangle(cornerRadius: AppRadius.md, style: .continuous))
             .overlay(
@@ -125,7 +125,7 @@ struct SceneChip: View {
                 ZStack(alignment: .topTrailing) {
                     Image(systemName: scene.systemImage)
                         .font(.system(size: AppIconSize.xl, weight: .medium))
-                        .frame(width: 52, height: 52)
+                        .frame(width: 48, height: 48)
                         .background(scene.tone.opacity(0.24), in: Circle())
 
                     if isLocked {
@@ -142,7 +142,7 @@ struct SceneChip: View {
                     .lineLimit(1)
             }
             .foregroundStyle(isSelected ? AppColor.textPrimary : AppColor.textSecondary)
-            .frame(width: 74)
+            .frame(width: 70)
         }
         .buttonStyle(.plain)
         .accessibilityLabel(isLocked ? "\(scene.title)、プレミアム限定" : scene.title)
@@ -160,7 +160,7 @@ struct FilterTab: View {
             Text(title)
                 .font(AppFont.captionStrong)
                 .foregroundStyle(isSelected ? AppColor.surfacePrimary : AppColor.textSecondary)
-                .padding(.horizontal, AppSpacing.md)
+                .padding(.horizontal, AppSpacing.sm)
                 .padding(.vertical, AppSpacing.xs)
                 .background(isSelected ? AppColor.brandPrimarySage : AppColor.surfacePrimary, in: Capsule())
                 .overlay(

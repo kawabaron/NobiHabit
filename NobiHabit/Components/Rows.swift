@@ -78,7 +78,7 @@ struct SettingRow: View {
                     .foregroundStyle(AppColor.textSecondary)
             }
         }
-        .padding(.vertical, AppSpacing.sm)
+        .padding(.vertical, AppSpacing.rowVertical)
         .accessibilityElement(children: .combine)
     }
 }

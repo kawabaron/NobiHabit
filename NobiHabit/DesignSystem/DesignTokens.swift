@@ -26,15 +26,15 @@ enum AppColor {
 }
 
 enum AppFont {
-    static let largeTitle = Font.system(size: 28, weight: .semibold)
-    static let screenTitle = Font.system(size: 22, weight: .semibold)
-    static let sectionTitle = Font.system(size: 18, weight: .semibold)
-    static let cardTitle = Font.system(size: 17, weight: .medium)
+    static let largeTitle = Font.system(size: 27, weight: .semibold)
+    static let screenTitle = Font.system(size: 21, weight: .semibold)
+    static let sectionTitle = Font.system(size: 17, weight: .semibold)
+    static let cardTitle = Font.system(size: 16, weight: .medium)
     static let body = Font.system(size: 15, weight: .regular)
     static let bodyStrong = Font.system(size: 15, weight: .semibold)
     static let caption = Font.system(size: 13, weight: .regular)
     static let captionStrong = Font.system(size: 13, weight: .medium)
-    static let button = Font.system(size: 16, weight: .semibold)
+    static let button = Font.system(size: 15, weight: .semibold)
     static let statNumber = Font.system(size: 24, weight: .medium)
     static let timerNumber = Font.system(size: 40, weight: .medium)
     static let tabLabel = Font.system(size: 11, weight: .medium)
@@ -54,6 +54,7 @@ enum AppSpacing {
     static let cardCompact: CGFloat = 12
     static let cardStandard: CGFloat = 16
     static let cardHero: CGFloat = 20
+    static let rowVertical: CGFloat = 10
 }
 
 enum AppRadius {

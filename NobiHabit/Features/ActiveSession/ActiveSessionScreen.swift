@@ -27,8 +27,7 @@ struct ActiveSessionScreen: View {
 
     private var poseProgress: Double {
         guard currentPose.durationSeconds > 0 else { return 1 }
-        let elapsed = currentPose.durationSeconds - remainingSeconds
-        return Double(elapsed) / Double(currentPose.durationSeconds)
+        return Double(remainingSeconds) / Double(currentPose.durationSeconds)
     }
 
     var body: some View {
@@ -194,7 +193,7 @@ private struct ActiveSessionTimer: View {
     var progress: Double
 
     var body: some View {
-        ProgressRing(progress: progress, lineWidth: 8) {
+        ProgressRing(progress: progress, lineWidth: 9) {
             TimerView(
                 remainingText: isPaused ? "一時停止" : timeText(seconds: remainingSeconds),
                 caption: "残り時間"

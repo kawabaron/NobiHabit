@@ -129,8 +129,8 @@ struct StretchPlaceholderView: View {
                 .fill(
                     LinearGradient(
                         colors: [
-                            AppColor.surfaceSageSoft.opacity(0.85),
-                            AppColor.backgroundElevated
+                            AppColor.surfaceSageSoft.opacity(0.42),
+                            AppColor.backgroundElevated.opacity(0.92)
                         ],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
@@ -138,27 +138,27 @@ struct StretchPlaceholderView: View {
                 )
 
             Circle()
-                .fill(AppColor.accentCoral.opacity(0.18))
-                .frame(width: 92, height: 92)
-                .offset(x: 42, y: 22)
+                .fill(AppColor.accentCoral.opacity(0.1))
+                .frame(width: 72, height: 72)
+                .offset(x: 34, y: 22)
 
             VStack(spacing: 0) {
                 Circle()
-                    .fill(AppColor.textPrimary.opacity(0.18))
-                    .frame(width: 34, height: 34)
+                    .fill(AppColor.textPrimary.opacity(0.1))
+                    .frame(width: 26, height: 26)
 
                 RoundedRectangle(cornerRadius: 28, style: .continuous)
-                    .fill(AppColor.brandPrimarySage.opacity(0.72))
-                    .frame(width: 72, height: 86)
+                    .fill(AppColor.brandPrimarySage.opacity(0.46))
+                    .frame(width: 58, height: 68)
                     .overlay(
                         Capsule()
-                            .fill(AppColor.surfacePrimary.opacity(0.75))
-                            .frame(width: 80, height: 20)
-                            .offset(y: -18),
+                            .fill(AppColor.surfacePrimary.opacity(0.52))
+                            .frame(width: 64, height: 15)
+                            .offset(y: -14),
                         alignment: .top
                     )
             }
-            .offset(y: 10)
+            .offset(y: 8)
         }
     }
 }

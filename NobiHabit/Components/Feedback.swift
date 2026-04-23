@@ -94,12 +94,13 @@ struct ProgressRing<Content: View>: View {
     var body: some View {
         ZStack {
             Circle()
-                .stroke(AppColor.surfaceSecondary, lineWidth: lineWidth)
+                .stroke(AppColor.surfaceSecondary.opacity(0.72), lineWidth: lineWidth)
 
             Circle()
                 .trim(from: 0, to: min(max(progress, 0), 1))
-                .stroke(AppColor.brandPrimarySage, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+                .stroke(AppColor.success, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                 .rotationEffect(.degrees(-90))
+                .animation(.easeInOut(duration: 0.22), value: progress)
 
             content
         }

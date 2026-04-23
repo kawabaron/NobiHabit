@@ -12,6 +12,7 @@ struct CompletionScreen: View {
     var body: some View {
         AppScaffold(showsDecor: true) {
             completionHero
+                .padding(.top, AppSpacing.xl)
             summaryStats
             moodSection
             tomorrowSection
@@ -24,7 +25,7 @@ struct CompletionScreen: View {
     private var completionHero: some View {
         SurfaceCard(style: .hero, padding: AppSpacing.cardHero) {
             VStack(spacing: AppSpacing.md) {
-                MascotBadge(variant: .celebrate, size: 86)
+                MascotBadge(variant: .celebrate, size: 76)
 
                 VStack(spacing: AppSpacing.xs) {
                     Text("おつかれさまでした！")

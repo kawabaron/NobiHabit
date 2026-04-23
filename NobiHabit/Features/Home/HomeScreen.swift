@@ -59,20 +59,20 @@ struct HomeScreen: View {
 
             SurfaceCard(style: .hero, padding: AppSpacing.cardHero) {
                 VStack(spacing: AppSpacing.md) {
-                    HStack(alignment: .center, spacing: AppSpacing.md) {
-                        IllustrationCard(assetName: recommendation.routine.thumbnailAssetName, height: 112)
-                            .frame(width: 118)
+                    HStack(alignment: .center, spacing: AppSpacing.sm) {
+                        IllustrationCard(assetName: recommendation.routine.thumbnailAssetName, height: 104)
+                            .frame(width: 96)
 
                         VStack(alignment: .leading, spacing: AppSpacing.xs) {
                             HStack(alignment: .top) {
                                 Text(recommendation.routine.title)
                                     .font(AppFont.cardTitle)
                                     .foregroundStyle(AppColor.textPrimary)
-                                    .lineLimit(2)
-                                    .minimumScaleFactor(0.86)
+                                    .lineLimit(1)
+                                    .minimumScaleFactor(0.9)
 
                                 Spacer()
-                                MascotBadge(variant: recommendation.mascotVariant, size: 38)
+                                MascotBadge(variant: recommendation.mascotVariant, size: 30)
                             }
 
                             Text(recommendation.routine.durationText)
