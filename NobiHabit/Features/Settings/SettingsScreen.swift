@@ -21,7 +21,7 @@ struct SettingsScreen: View {
         VStack(alignment: .leading, spacing: AppSpacing.sm) {
             SectionHeader(title: "通知")
 
-            SurfaceCard {
+            SurfaceCard(padding: AppSpacing.cardCompact) {
                 VStack(spacing: 0) {
                     SettingRow(icon: "clock", title: "リマインダー時刻", accessory: .navigationValue(settings.reminderTimeText))
                     Divider().background(AppColor.borderSoft)
@@ -35,7 +35,7 @@ struct SettingsScreen: View {
         VStack(alignment: .leading, spacing: AppSpacing.sm) {
             SectionHeader(title: "サウンド・触覚")
 
-            SurfaceCard {
+            SurfaceCard(padding: AppSpacing.cardCompact) {
                 VStack(spacing: 0) {
                     SettingRow(icon: "speaker.wave.2", title: "サウンド", accessory: .toggle($isSoundEnabled))
                     Divider().background(AppColor.borderSoft)
@@ -49,7 +49,7 @@ struct SettingsScreen: View {
         VStack(alignment: .leading, spacing: AppSpacing.sm) {
             SectionHeader(title: "その他")
 
-            SurfaceCard {
+            SurfaceCard(padding: AppSpacing.cardCompact) {
                 VStack(spacing: 0) {
                     SettingRow(icon: "heart.text.square", title: "ヘルスケア連携", accessory: .navigation)
                     Divider().background(AppColor.borderSoft)

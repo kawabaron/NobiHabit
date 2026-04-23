@@ -70,7 +70,7 @@ struct AppScaffold<Content: View, Trailing: View>: View {
                     }
                     .screenHorizontalPadding()
                     .padding(.top, title == nil ? AppSpacing.lg : AppSpacing.xs)
-                    .padding(.bottom, AppSpacing.xxxl)
+                    .padding(.bottom, AppSpacing.scrollBottomClearance)
                 }
             }
         }

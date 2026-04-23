@@ -35,7 +35,7 @@ struct SessionPrepScreen: View {
     }
 
     private var heroSection: some View {
-        IllustrationCard(assetName: routine.heroIllustrationAssetName, height: 250)
+        IllustrationCard(assetName: routine.heroIllustrationAssetName, height: 220)
             .overlay(alignment: .bottomLeading) {
                 MascotInlineHint(
                     variant: .breath,

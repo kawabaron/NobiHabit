@@ -54,7 +54,8 @@ enum AppSpacing {
     static let cardCompact: CGFloat = 12
     static let cardStandard: CGFloat = 16
     static let cardHero: CGFloat = 20
-    static let rowVertical: CGFloat = 10
+    static let rowVertical: CGFloat = 8
+    static let scrollBottomClearance: CGFloat = 72
 }
 
 enum AppRadius {

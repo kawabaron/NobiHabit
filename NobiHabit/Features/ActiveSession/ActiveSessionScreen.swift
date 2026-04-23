@@ -193,7 +193,7 @@ private struct ActiveSessionTimer: View {
     var progress: Double
 
     var body: some View {
-        ProgressRing(progress: progress, lineWidth: 9) {
+        ProgressRing(progress: progress, lineWidth: 7) {
             TimerView(
                 remainingText: isPaused ? "一時停止" : timeText(seconds: remainingSeconds),
                 caption: "残り時間"

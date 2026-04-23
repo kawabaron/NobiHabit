@@ -12,7 +12,7 @@ struct CompletionScreen: View {
     var body: some View {
         AppScaffold(showsDecor: true) {
             completionHero
-                .padding(.top, AppSpacing.xl)
+                .padding(.top, AppSpacing.xxxl)
             summaryStats
             moodSection
             tomorrowSection

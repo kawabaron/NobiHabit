@@ -46,9 +46,9 @@ struct SettingRow: View {
     var body: some View {
         HStack(spacing: AppSpacing.sm) {
             Image(systemName: icon)
-                .font(.system(size: AppIconSize.md, weight: .medium))
+                .font(.system(size: AppIconSize.sm, weight: .medium))
                 .foregroundStyle(AppColor.textSecondary)
-                .frame(width: 26)
+                .frame(width: 24)
 
             Text(title)
                 .font(AppFont.body)
